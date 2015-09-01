@@ -75,11 +75,11 @@ public class Client {
                     
                     //Insere uns tempos pra simular o delay nas msgs
                     //Set delay times to simulate the request/response delays
-                    /*
+                    /**/
                     t1 += 100;
                     t2 += 150;
                     t3 += 250;
-                    */
+                    
                     
                     // Gets the RTT (Round trip delay time)
                     long rtt = (t3 - t0) - (t2 - t1);
@@ -90,24 +90,24 @@ public class Client {
                     pr.println("Tempo do Servidor Envio: " + t2);
                     pr.println("Tempo Cliente Recebimento: " + t3);
                     
-                    pr.println("RTT");
-                    pr.println("a = (t3 - t0) = " + (t3 - t0));
-                    pr.println("b = (t2 - t1) = " + (t2 - t1));
+                    pr.println("*** RTT ***");
+                    pr.println("a -> (t3 - t0) = " + (t3 - t0));
+                    pr.println("b -> (t2 - t1) = " + (t2 - t1));
                     
-                    pr.println("###RTT divido por 2###");
+                    pr.println("*** RTT divido por 2 ***");
                     pr.println("(a-b)/2 =  " + rtt / 2);
 
                     //RTT Offset
                     long theta = (t1 - t0) + (t2 - t3 ) / 2;
-                    pr.println("###RTT Offset###");
-                    pr.println("Theta: " + theta); 
+                    pr.println("*** RTT Offset ***");
+                    pr.println("Theta -> (t1 - t0) + (t2 - t3 ) / 2 = " + theta); 
                     
                     
                     long cristianTime = t2 + (rtt / 2);
                     long cristianTimeComOffset = t2 + (theta);
-                    pr.println("###Horario de Cristian###");
-                    pr.println("Horario de Cristian t2 + (rtt/2): " + cristianTime); 
-                    pr.println("Horario de Cristian t2 + (rtt_offset): " + cristianTimeComOffset); 
+                    pr.println("*** Horario de Cristian ***");
+                    pr.println("Horario de Cristian -> t2 + (rtt/2): " + cristianTime); 
+                    pr.println("Horario de Cristian -> t2 + (rtt_offset): " + cristianTimeComOffset); 
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
